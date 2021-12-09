@@ -1,4 +1,4 @@
-# PutWindow
+# PutAWindow
 This program just puts a window on top.
 
 I created this mainly to set up a pen tablet.
