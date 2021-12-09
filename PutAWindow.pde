@@ -68,7 +68,7 @@ class PWindow extends PApplet {
   void setup() {
     background(150);
     surface.setLocation(gLeft+gWidth, gTop);
-    surface.setTitle("PutWindow: Controller");
+    surface.setTitle("PutAWindow: Controller");
     
     cp5 = new ControlP5(this);
     
