@@ -6,7 +6,7 @@ PWindow mControlWindow;
 boolean flagApply = false;
 
 final int BarHeight = 28;
-int gWidth  = 1392;
+int gWidth  = 1398;
 int gHeight = 874 - BarHeight; // minus the window bar height. 
 int gTop    = 283;
 int gLeft   = 1024;
@@ -45,9 +45,9 @@ void draw() {
   
   surface.setLocation(gLeft, gTop);
   surface.setSize(gWidth, gHeight);
-  text("Width=" + gWidth + ", Height=" + gHeight, 0, 0);
+  text("Width=" + gWidth + ", Height=" + (gHeight + BarHeight), 0, 0);
   text("Left="  + gLeft  + ", Top="    + gTop  , 0, 30);
-  text("Right=" + (gLeft + gWidth) + ", Bottom=" + (gTop + gHeight), 0, 60); 
+  text("Right=" + (gLeft + gWidth) + ", Bottom=" + (gTop + gHeight + BarHeight), 0, 60); 
 }
 
 
