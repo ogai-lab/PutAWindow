@@ -5,14 +5,20 @@ import processing.awt.PSurfaceAWT;
 PWindow mControlWindow;
 boolean flagApply = false;
 
-final int BarHeight = 28;
-int gWidth  = 1398;
-int gHeight = 874 - BarHeight; // minus the window bar height. 
+int gBarHeight = 28;
+int gBarWidth  = 0;
+int gWidth  = 1398 - gBarWidth;
+int gHeight = 874  - gBarHeight; // minus the window bar height. 
 int gTop    = 283;
 int gLeft   = 1024;
 
 void settings(){
   size(gWidth, gHeight);
+  String osname = System.getProperty("os.name");
+  if(osname.substring(0, 7).equals("Windows")){
+    gBarHeight = 56;
+    gBarWidth  = 22;
+  }
 }
 
 void setup(){ 
@@ -37,17 +43,17 @@ void draw() {
   if(flagApply){
     flagApply = false;
   }else{
-    gWidth  = getFrame().getWidth();
-    gHeight = getFrame().getHeight() - BarHeight;
+    gWidth  = getFrame().getWidth()  - gBarWidth;
+    gHeight = getFrame().getHeight() - gBarHeight;
     gTop    = getFrame().getY();
     gLeft   = getFrame().getX();
   }
   
   surface.setLocation(gLeft, gTop);
   surface.setSize(gWidth, gHeight);
-  text("Width=" + gWidth + ", Height=" + (gHeight + BarHeight), 0, 0);
+  text("Width=" + (gWidth + gBarWidth) + ", Height=" + (gHeight + gBarHeight), 0, 0);
   text("Left="  + gLeft  + ", Top="    + gTop  , 0, 30);
-  text("Right=" + (gLeft + gWidth) + ", Bottom=" + (gTop + gHeight + BarHeight), 0, 60); 
+  text("Right=" + (gLeft + gWidth + gBarWidth) + ", Bottom=" + (gTop + gHeight + gBarHeight), 0, 60); 
 }
 
 
